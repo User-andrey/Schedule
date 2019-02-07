@@ -14,6 +14,8 @@
 		EB316509220CBF720003F474 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB316507220CBF720003F474 /* LaunchScreen.storyboard */; };
 		EB316514220CBF720003F474 /* ScheduleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB316513220CBF720003F474 /* ScheduleTests.swift */; };
 		EB31651F220CBF720003F474 /* ScheduleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB31651E220CBF720003F474 /* ScheduleUITests.swift */; };
+		EB31652D220CD0DC0003F474 /* graphViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB31652C220CD0DC0003F474 /* graphViewController.swift */; };
+		EB31652F220CD12D0003F474 /* detailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB31652E220CD12D0003F474 /* detailsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +49,8 @@
 		EB31651A220CBF720003F474 /* ScheduleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ScheduleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB31651E220CBF720003F474 /* ScheduleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleUITests.swift; sourceTree = "<group>"; };
 		EB316520220CBF720003F474 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EB31652C220CD0DC0003F474 /* graphViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = graphViewController.swift; sourceTree = "<group>"; };
+		EB31652E220CD12D0003F474 /* detailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = detailsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +103,8 @@
 			children = (
 				EB3164FE220CBF700003F474 /* AppDelegate.swift */,
 				EB316500220CBF700003F474 /* ViewController.swift */,
+				EB31652C220CD0DC0003F474 /* graphViewController.swift */,
+				EB31652E220CD12D0003F474 /* detailsViewController.swift */,
 				EB316502220CBF700003F474 /* Main.storyboard */,
 				EB316505220CBF720003F474 /* Assets.xcassets */,
 				EB316507220CBF720003F474 /* LaunchScreen.storyboard */,
@@ -258,6 +264,8 @@
 			files = (
 				EB316501220CBF700003F474 /* ViewController.swift in Sources */,
 				EB3164FF220CBF700003F474 /* AppDelegate.swift in Sources */,
+				EB31652D220CD0DC0003F474 /* graphViewController.swift in Sources */,
+				EB31652F220CD12D0003F474 /* detailsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
