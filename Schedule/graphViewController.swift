@@ -17,7 +17,7 @@ class graphViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        for i in 1...31{
+        for i in 1...8{
             graphArray.append(String(i))
         }
         
@@ -35,9 +35,17 @@ extension graphViewController: UITableViewDelegate, UITableViewDataSource {
         return graphArray.count
     }
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = graphArray[indexPath.row]
+        if indexPath.section == 0 {
+            cell.textLabel?.text = graphArray[indexPath.row] + " день"
+        }else{
+            cell.textLabel?.text = graphArray[indexPath.row] + " ночь"
+        }
         return cell
     }
     
