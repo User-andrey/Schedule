@@ -24,6 +24,9 @@ class detailsViewController: UIViewController {
         detaliTableView.dataSource = self
         
     }
+    
+    
+    
 }
     
 extension detailsViewController: UITableViewDelegate, UITableViewDataSource {
@@ -48,6 +51,8 @@ extension detailsViewController: UITableViewDelegate, UITableViewDataSource {
         func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
             return 70.0
         }
+    
+
 
 }
 

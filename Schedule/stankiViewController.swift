@@ -9,11 +9,13 @@
 import UIKit
 
 class stankiViewController: UIViewController {
+    
+    var numberRow: String?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-       
+        
+        print(numberRow!)
     }
     
 

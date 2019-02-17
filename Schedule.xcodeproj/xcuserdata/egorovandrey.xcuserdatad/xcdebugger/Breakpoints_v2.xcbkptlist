@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Schedule/stankiViewController.swift"
-            timestampString = "571913887.502804"
+            timestampString = "572087123.987667"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "20"
-            endingLineNumber = "20"
+            startingLineNumber = "22"
+            endingLineNumber = "22"
             landmarkName = "stankiViewController"
             landmarkType = "3">
          </BreakpointContent>
@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Schedule/graphViewController.swift"
-            timestampString = "571913887.505872"
+            timestampString = "572087123.988143"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "63"
-            endingLineNumber = "63">
+            startingLineNumber = "68"
+            endingLineNumber = "68">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -56,11 +56,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Schedule/graphViewController.swift"
-            timestampString = "571913887.5062129"
+            timestampString = "572087123.988243"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "63"
-            endingLineNumber = "63">
+            startingLineNumber = "68"
+            endingLineNumber = "68">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
