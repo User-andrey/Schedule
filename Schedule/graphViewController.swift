@@ -59,8 +59,9 @@ extension graphViewController: UITableViewDelegate, UITableViewDataSource {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destination = segue.destination as? stankiViewController {
-            var cell = graphTableView.indexPathForSelectedRow
-            destination.numberRow = graphArray[cell!.row]
+            var indexPathSelect = graphTableView.indexPathForSelectedRow
+            destination.numberRowSelected = graphArray[indexPathSelect!.row]
+           
         }
     }
     

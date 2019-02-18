@@ -118,6 +118,11 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="e0y-0g-Yvj"/>
                     </view>
+                    <connections>
+                        <outlet property="SR23Switch" destination="7ij-P7-wdI" id="2Mv-IN-X7W"/>
+                        <outlet property="SR3Switch" destination="n7V-3l-9DS" id="d7u-fF-DEB"/>
+                        <outlet property="V4Switch" destination="mNN-8N-p8b" id="1fH-fs-HhL"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8dW-iH-7yp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
