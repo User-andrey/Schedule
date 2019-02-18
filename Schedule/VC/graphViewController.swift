@@ -61,7 +61,7 @@ extension graphViewController: UITableViewDelegate, UITableViewDataSource {
         if let destination = segue.destination as? stankiViewController {
             var indexPathSelect = graphTableView.indexPathForSelectedRow
             destination.numberRowSelected = graphArray[indexPathSelect!.row]
-           
+            destination.numberSectionSelected = graphArray[indexPathSelect!.section]
         }
     }
     

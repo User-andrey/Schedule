@@ -13,10 +13,9 @@
 		EB316504220CBF700003F474 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB316502220CBF700003F474 /* Main.storyboard */; };
 		EB316506220CBF720003F474 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB316505220CBF720003F474 /* Assets.xcassets */; };
 		EB316509220CBF720003F474 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB316507220CBF720003F474 /* LaunchScreen.storyboard */; };
-		EB316514220CBF720003F474 /* ScheduleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB316513220CBF720003F474 /* ScheduleTests.swift */; };
-		EB31651F220CBF720003F474 /* ScheduleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB31651E220CBF720003F474 /* ScheduleUITests.swift */; };
 		EB31652D220CD0DC0003F474 /* graphViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB31652C220CD0DC0003F474 /* graphViewController.swift */; };
 		EB31652F220CD12D0003F474 /* detailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB31652E220CD12D0003F474 /* detailsViewController.swift */; };
+		EBBACF93221B28CB0083D52D /* SaveLoadClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBBACF92221B28CB0083D52D /* SaveLoadClass.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,13 +45,10 @@
 		EB316508220CBF720003F474 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EB31650A220CBF720003F474 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EB31650F220CBF720003F474 /* ScheduleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ScheduleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		EB316513220CBF720003F474 /* ScheduleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleTests.swift; sourceTree = "<group>"; };
-		EB316515220CBF720003F474 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EB31651A220CBF720003F474 /* ScheduleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ScheduleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		EB31651E220CBF720003F474 /* ScheduleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleUITests.swift; sourceTree = "<group>"; };
-		EB316520220CBF720003F474 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EB31652C220CD0DC0003F474 /* graphViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = graphViewController.swift; sourceTree = "<group>"; };
 		EB31652E220CD12D0003F474 /* detailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = detailsViewController.swift; sourceTree = "<group>"; };
+		EBBACF92221B28CB0083D52D /* SaveLoadClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveLoadClass.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,8 +80,6 @@
 			isa = PBXGroup;
 			children = (
 				EB3164FD220CBF700003F474 /* Schedule */,
-				EB316512220CBF720003F474 /* ScheduleTests */,
-				EB31651D220CBF720003F474 /* ScheduleUITests */,
 				EB3164FC220CBF700003F474 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -104,10 +98,7 @@
 			isa = PBXGroup;
 			children = (
 				EB3164FE220CBF700003F474 /* AppDelegate.swift */,
-				EB316500220CBF700003F474 /* ViewController.swift */,
-				EB31652C220CD0DC0003F474 /* graphViewController.swift */,
-				EB31652E220CD12D0003F474 /* detailsViewController.swift */,
-				EB2488D42216B14C00120209 /* stankiViewController.swift */,
+				EBBACF8F221B1E0B0083D52D /* VC */,
 				EB316502220CBF700003F474 /* Main.storyboard */,
 				EB316505220CBF720003F474 /* Assets.xcassets */,
 				EB316507220CBF720003F474 /* LaunchScreen.storyboard */,
@@ -116,22 +107,16 @@
 			path = Schedule;
 			sourceTree = "<group>";
 		};
-		EB316512220CBF720003F474 /* ScheduleTests */ = {
+		EBBACF8F221B1E0B0083D52D /* VC */ = {
 			isa = PBXGroup;
 			children = (
-				EB316513220CBF720003F474 /* ScheduleTests.swift */,
-				EB316515220CBF720003F474 /* Info.plist */,
+				EB316500220CBF700003F474 /* ViewController.swift */,
+				EBBACF92221B28CB0083D52D /* SaveLoadClass.swift */,
+				EB31652C220CD0DC0003F474 /* graphViewController.swift */,
+				EB31652E220CD12D0003F474 /* detailsViewController.swift */,
+				EB2488D42216B14C00120209 /* stankiViewController.swift */,
 			);
-			path = ScheduleTests;
-			sourceTree = "<group>";
-		};
-		EB31651D220CBF720003F474 /* ScheduleUITests */ = {
-			isa = PBXGroup;
-			children = (
-				EB31651E220CBF720003F474 /* ScheduleUITests.swift */,
-				EB316520220CBF720003F474 /* Info.plist */,
-			);
-			path = ScheduleUITests;
+			path = VC;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -268,6 +253,7 @@
 				EB316501220CBF700003F474 /* ViewController.swift in Sources */,
 				EB2488D52216B14C00120209 /* stankiViewController.swift in Sources */,
 				EB3164FF220CBF700003F474 /* AppDelegate.swift in Sources */,
+				EBBACF93221B28CB0083D52D /* SaveLoadClass.swift in Sources */,
 				EB31652D220CD0DC0003F474 /* graphViewController.swift in Sources */,
 				EB31652F220CD12D0003F474 /* detailsViewController.swift in Sources */,
 			);
@@ -277,7 +263,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EB316514220CBF720003F474 /* ScheduleTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -285,7 +270,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EB31651F220CBF720003F474 /* ScheduleUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
