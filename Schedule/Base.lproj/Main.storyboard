@@ -202,6 +202,22 @@
             </objects>
             <point key="canvasLocation" x="446.25" y="588.38028169014081"/>
         </scene>
+        <!--Фаска-->
+        <scene sceneID="toG-RW-ALs">
+            <objects>
+                <viewController id="fwf-zo-sPc" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="vpu-Np-EC3">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="HTx-EU-9Bi"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Фаска" image="chamfer" id="cLS-My-cnF"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="b5L-S0-TYl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1131" y="588"/>
+        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="0KW-9I-wMg">
             <objects>
@@ -216,6 +232,7 @@
                         <segue destination="cIb-N6-af3" kind="relationship" relationship="viewControllers" id="ZHv-Zu-BkB"/>
                         <segue destination="R3I-dW-Ryi" kind="relationship" relationship="viewControllers" id="bic-Sw-KoI"/>
                         <segue destination="cjh-R4-Ec8" kind="relationship" relationship="viewControllers" id="cSC-LS-i8P"/>
+                        <segue destination="fwf-zo-sPc" kind="relationship" relationship="viewControllers" id="572-TI-l30"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Gs-ft-tlb" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -233,6 +250,9 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="weN-1f-cT5">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
                     <connections>
                         <segue destination="9IS-pp-V18" kind="relationship" relationship="rootViewController" id="nvd-ci-Xau"/>
                     </connections>
@@ -246,6 +266,7 @@
         <image name="      " width="16" height="16"/>
         <image name="bg1" width="750" height="1334"/>
         <image name="bg2" width="750" height="1334"/>
+        <image name="chamfer" width="30" height="30"/>
         <image name="layers" width="30" height="30"/>
         <image name="money_bag" width="30" height="30"/>
         <image name="services" width="30" height="30"/>
