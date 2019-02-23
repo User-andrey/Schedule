@@ -76,7 +76,7 @@ class graphViewController: UIViewController {
             let monthItem = Calendar.current.component(.month, from: i)
             
             if monthItem == selectMonth {
-                format.dateFormat = "d MMM"
+                format.dateFormat = "d"
                 let dateString = format.string(from: i)
                 selectMonthArray.append(dateString)
             }
@@ -116,8 +116,14 @@ extension graphViewController: UITableViewDelegate, UITableViewDataSource {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destination = segue.destination as? stankiViewController {
             var indexPathSelect = graphTableView.indexPathForSelectedRow
-            destination.numberRowSelected = graphArray[indexPathSelect!.row]
             
+            let rowFromDate = jobArray[indexPathSelect!.row]
+            let sectionFromDate = jobArray[indexPathSelect!.section]
+            let rowInString = format.string(from: rowFromDate)
+            let sectionInString = format.string(from: sectionFromDate)
+            
+            destination.numberRowSelected = rowInString
+            destination.numberSectionSelected = sectionInString
         }
     }
    
