@@ -10,7 +10,12 @@ import UIKit
 
 class graphViewController: UIViewController {
     
+    var jobArray = [Date]()
+    let selectMonthNumber = 2
+    var selectMonthComponents = DateComponents()
+    let format = DateFormatter()
     var graphArray = [String]()
+    var selectMonthArray = [String]()
     
     @IBOutlet weak var graphTableView: UITableView!
     
@@ -19,35 +24,84 @@ class graphViewController: UIViewController {
         
         for i in 1...8{
             graphArray.append(String(i))
-        }
-        
+        }        
         graphTableView.delegate = self
         graphTableView.dataSource = self
-       
+        //////////////////////
+        let myDate = Date()
+        let weekInSecond = TimeInterval(7 * 24 * 60 * 60)
+        let twoWeekInSecond = TimeInterval(weekInSecond * 2)
+        let dayInSecond = TimeInterval(24 * 60 * 60)
+        var calendarComponents = Calendar.current.dateComponents([.year, .month, .day, .hour] , from: myDate)
+        let dayToday = calendarComponents.day
+        let monthToday = calendarComponents.month
+        let hourNow = calendarComponents.hour
+        
+        
+        
+        
+        var firstJobDayInYear = Calendar.current.date(byAdding: .day, value: -dayToday!, to: myDate)
+        firstJobDayInYear = Calendar.current.date(byAdding: .month, value: -monthToday! + 1, to: firstJobDayInYear!)
+        
+        
+        // заполнение массива всеми рабочими датами
+        for _ in 1...26 {
+            for _ in 1...7 {
+
+                jobArray.append(firstJobDayInYear!)
+                firstJobDayInYear = Calendar.current.date(byAdding: .day, value: 1, to: firstJobDayInYear!)
+                
+            }
+            
+            firstJobDayInYear! += weekInSecond
+        }
+        
+
+        selectMonthComponents.year = 2019
+        selectMonthComponents.month = selectMonthNumber
+        selectMonthComponents.day = 1
+        let selectDate = Calendar.current.date(from: selectMonthComponents)
+        
+        //последний день выбранного месяца
+        var lastDayOfSelectMonth = Calendar.current.date(byAdding: .month, value: 1, to: selectDate!)
+        lastDayOfSelectMonth = Calendar.current.date(byAdding: .day, value: -1, to: lastDayOfSelectMonth!)
+        
+        
+        ////////////////////////////
+        selectMonthFunc(selectMonth: selectMonthNumber)
     }
     
+    func selectMonthFunc(selectMonth: Int) {
+        for i in jobArray {
+            let monthItem = Calendar.current.component(.month, from: i)
+            
+            if monthItem == selectMonth {
+                format.dateFormat = "d MMM"
+                let dateString = format.string(from: i)
+                selectMonthArray.append(dateString)
+            }
+        }
+        
+    }
 
 }
 
 
 extension graphViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return graphArray.count
+        return selectMonthArray.count
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        if indexPath.section == 0 {
-            cell.textLabel?.text = graphArray[indexPath.row] + " день"
-        }else{
-            cell.textLabel?.text = graphArray[indexPath.row] + " ночь"
-        }
+        cell.textLabel?.text = selectMonthArray[indexPath.row]
         return cell
     }
+    
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
@@ -57,12 +111,20 @@ extension graphViewController: UITableViewDelegate, UITableViewDataSource {
         return 70.0
     }
     
+    
+        
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destination = segue.destination as? stankiViewController {
             var indexPathSelect = graphTableView.indexPathForSelectedRow
             destination.numberRowSelected = graphArray[indexPathSelect!.row]
-            destination.numberSectionSelected = graphArray[indexPathSelect!.section]
+            
         }
     }
-    
+   
+
+        
+        
 }
+
+
+

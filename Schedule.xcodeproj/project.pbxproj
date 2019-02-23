@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EB0DF1C7221BC98900268ACD /* ChamferVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0DF1C6221BC98900268ACD /* ChamferVC.swift */; };
 		EB2488D52216B14C00120209 /* stankiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2488D42216B14C00120209 /* stankiViewController.swift */; };
 		EB3164FF220CBF700003F474 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3164FE220CBF700003F474 /* AppDelegate.swift */; };
 		EB316501220CBF700003F474 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB316500220CBF700003F474 /* ViewController.swift */; };
@@ -36,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		EB0DF1C6221BC98900268ACD /* ChamferVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChamferVC.swift; sourceTree = "<group>"; };
 		EB2488D42216B14C00120209 /* stankiViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = stankiViewController.swift; sourceTree = "<group>"; };
 		EB3164FB220CBF700003F474 /* Schedule.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Schedule.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB3164FE220CBF700003F474 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -111,6 +113,7 @@
 			isa = PBXGroup;
 			children = (
 				EB316500220CBF700003F474 /* ViewController.swift */,
+				EB0DF1C6221BC98900268ACD /* ChamferVC.swift */,
 				EBBACF92221B28CB0083D52D /* SaveLoadClass.swift */,
 				EB31652C220CD0DC0003F474 /* graphViewController.swift */,
 				EB31652E220CD12D0003F474 /* detailsViewController.swift */,
@@ -250,6 +253,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB0DF1C7221BC98900268ACD /* ChamferVC.swift in Sources */,
 				EB316501220CBF700003F474 /* ViewController.swift in Sources */,
 				EB2488D52216B14C00120209 /* stankiViewController.swift in Sources */,
 				EB3164FF220CBF700003F474 /* AppDelegate.swift in Sources */,
