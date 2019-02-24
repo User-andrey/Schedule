@@ -23,11 +23,11 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <view opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QAy-hd-jXd">
-                                <rect key="frame" x="0.0" y="24" width="320" height="519"/>
+                                <rect key="frame" x="0.0" y="24" width="320" height="544"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="dsQ-RA-RFk">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
+                                        <rect key="frame" x="0.0" y="37" width="320" height="471"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <prototypes>
@@ -60,14 +60,28 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="xTy-PT-Afz"/>
                     </view>
-                    <navigationItem key="navigationItem" id="PUe-9j-cR4"/>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="PUe-9j-cR4">
+                        <nil key="title"/>
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="mfh-pd-TvJ">
+                            <stepper key="customView" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minimumValue="1" maximumValue="12" id="i8H-dZ-goP">
+                                <rect key="frame" x="210" y="7.5" width="94" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="changeMonthStepper:" destination="9IS-pp-V18" eventType="valueChanged" id="oBA-wg-TkS"/>
+                                </connections>
+                            </stepper>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="changeMonthStepperOutlet" destination="i8H-dZ-goP" id="RlZ-2s-Jq7"/>
                         <outlet property="graphTableView" destination="dsQ-RA-RFk" id="AGb-3t-ar2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dFQ-ax-uZl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-454" y="1270"/>
+            <point key="canvasLocation" x="-131.25" y="1263.3802816901409"/>
         </scene>
         <!--Stanki View Controller-->
         <scene sceneID="Fjz-yr-4cb">
@@ -200,23 +214,91 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r5P-bw-Vfa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="336" y="408"/>
+            <point key="canvasLocation" x="335.625" y="407.74647887323943"/>
         </scene>
         <!--Фаска-->
         <scene sceneID="toG-RW-ALs">
             <objects>
-                <viewController id="fwf-zo-sPc" sceneMemberID="viewController">
+                <viewController id="fwf-zo-sPc" customClass="ChamferVC" customModule="Schedule" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="vpu-Np-EC3">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9yn-cf-YWw">
+                                <rect key="frame" x="16" y="38" width="288" height="71"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Диаметр фаски" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YZu-Dh-vi9">
+                                <rect key="frame" x="16" y="131" width="288" height="49"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="37"/>
+                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Глубина" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yx9-ng-WQY">
+                                <rect key="frame" x="16" y="194.5" width="288" height="49"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="37"/>
+                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Координата Х" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7rP-Gy-wMR">
+                                <rect key="frame" x="16" y="259.5" width="288" height="49"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="37"/>
+                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mt6-sk-t0M">
+                                <rect key="frame" x="72" y="340" width="175" height="59"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <state key="normal" title="Расчитать"/>
+                                <connections>
+                                    <action selector="answerButton:" destination="fwf-zo-sPc" eventType="touchUpInside" id="eOy-M6-GcJ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cqm-aG-1BM">
+                                <rect key="frame" x="237" y="317" width="59" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="+/-"/>
+                                <connections>
+                                    <action selector="plusMinusButton:" destination="fwf-zo-sPc" eventType="touchUpInside" id="V3M-5V-7xU"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="7rP-Gy-wMR" firstAttribute="leading" secondItem="yx9-ng-WQY" secondAttribute="leading" id="EB3-h9-efE"/>
+                            <constraint firstItem="7rP-Gy-wMR" firstAttribute="centerY" secondItem="vpu-Np-EC3" secondAttribute="centerY" id="KoS-7r-Zyn"/>
+                            <constraint firstItem="7rP-Gy-wMR" firstAttribute="leading" secondItem="vpu-Np-EC3" secondAttribute="leadingMargin" id="RdD-wN-1Zl"/>
+                            <constraint firstItem="7rP-Gy-wMR" firstAttribute="top" secondItem="yx9-ng-WQY" secondAttribute="bottom" constant="16" id="fB0-hH-pga"/>
+                            <constraint firstItem="7rP-Gy-wMR" firstAttribute="trailing" secondItem="yx9-ng-WQY" secondAttribute="trailing" id="gWv-hn-bd0"/>
+                            <constraint firstItem="yx9-ng-WQY" firstAttribute="centerX" secondItem="HTx-EU-9Bi" secondAttribute="centerX" id="zxH-Qm-jZv"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="HTx-EU-9Bi"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="TRS-vu-fzZ" appends="YES" id="lEE-Mr-bna"/>
+                        </connections>
                     </view>
                     <tabBarItem key="tabBarItem" title="Фаска" image="chamfer" id="cLS-My-cnF"/>
+                    <connections>
+                        <outlet property="outputLabel" destination="9yn-cf-YWw" id="Uxl-Zx-D0n"/>
+                        <outlet property="text1" destination="YZu-Dh-vi9" id="hz2-gF-SNp"/>
+                        <outlet property="text2" destination="yx9-ng-WQY" id="AaB-fY-wnz"/>
+                        <outlet property="text3" destination="7rP-Gy-wMR" id="Toh-rD-1jA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b5L-S0-TYl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="TRS-vu-fzZ">
+                    <connections>
+                        <action selector="tapAction:" destination="fwf-zo-sPc" id="dg4-7e-EYN"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1106" y="408"/>
+            <point key="canvasLocation" x="1104.375" y="407.74647887323943"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="0KW-9I-wMg">

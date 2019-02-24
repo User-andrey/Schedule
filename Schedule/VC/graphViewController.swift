@@ -10,84 +10,108 @@ import UIKit
 
 class graphViewController: UIViewController {
     
+    @IBOutlet weak var changeMonthStepperOutlet: UIStepper!
+    @IBOutlet weak var graphTableView: UITableView!
+
+    
     var jobArray = [Date]()
-    let selectMonthNumber = 2
+    var selectMonthNumber = 3
     var selectMonthComponents = DateComponents()
     let format = DateFormatter()
-    var graphArray = [String]()
     var selectMonthArray = [String]()
-    
-    @IBOutlet weak var graphTableView: UITableView!
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        for i in 1...8{
-            graphArray.append(String(i))
-        }        
-        graphTableView.delegate = self
-        graphTableView.dataSource = self
-        //////////////////////
-        let myDate = Date()
-        let weekInSecond = TimeInterval(7 * 24 * 60 * 60)
-        let twoWeekInSecond = TimeInterval(weekInSecond * 2)
-        let dayInSecond = TimeInterval(24 * 60 * 60)
-        var calendarComponents = Calendar.current.dateComponents([.year, .month, .day, .hour] , from: myDate)
-        let dayToday = calendarComponents.day
-        let monthToday = calendarComponents.month
-        let hourNow = calendarComponents.hour
-        
-        
-        
-        
-        var firstJobDayInYear = Calendar.current.date(byAdding: .day, value: -dayToday!, to: myDate)
-        firstJobDayInYear = Calendar.current.date(byAdding: .month, value: -monthToday! + 1, to: firstJobDayInYear!)
-        
-        
-        // заполнение массива всеми рабочими датами
-        for _ in 1...26 {
-            for _ in 1...7 {
+    let myDate = Date()
+    let weekInSecond = TimeInterval(7 * 24 * 60 * 60)
 
-                jobArray.append(firstJobDayInYear!)
-                firstJobDayInYear = Calendar.current.date(byAdding: .day, value: 1, to: firstJobDayInYear!)
+    
+
+    
+    
+    
+    
+            override func viewDidLoad() {
+                super.viewDidLoad()
                 
-            }
+                graphTableView.delegate = self
+                graphTableView.dataSource = self
+                var calendarComponents = Calendar.current.dateComponents([.year, .month, .day, .hour] , from: myDate)
+                let dayToday = calendarComponents.day
+                let monthToday = calendarComponents.month
+                var firstJobDayInYear = Calendar.current.date(byAdding: .day, value: -dayToday!, to: myDate)
+                firstJobDayInYear = Calendar.current.date(byAdding: .month, value: -monthToday! + 1, to: firstJobDayInYear!)
+                selectMonthComponents.year = 2019
+                selectMonthComponents.month = selectMonthNumber
+                selectMonthComponents.day = 1
+                let selectDate = Calendar.current.date(from: selectMonthComponents)
+                
+                // заполнение массива всеми рабочими датами
+                for _ in 1...26 {
+                    for _ in 1...7 {
+                        jobArray.append(firstJobDayInYear!)
+                        firstJobDayInYear = Calendar.current.date(byAdding: .day, value: 1, to: firstJobDayInYear!)
+                    }
+                    firstJobDayInYear! += weekInSecond
+                }
+                
+                //последний день выбранного месяца
+                var lastDayOfSelectMonth = Calendar.current.date(byAdding: .month, value: 1, to: selectDate!)
+                lastDayOfSelectMonth = Calendar.current.date(byAdding: .day, value: -1, to: lastDayOfSelectMonth!)
+                selectMonthFunc(selectMonth: monthToday!)
+                changeMonthStepperOutlet.value = Double(monthToday!)
             
-            firstJobDayInYear! += weekInSecond
-        }
-        
+            }
 
-        selectMonthComponents.year = 2019
-        selectMonthComponents.month = selectMonthNumber
-        selectMonthComponents.day = 1
-        let selectDate = Calendar.current.date(from: selectMonthComponents)
+
+    
+    
+    
+
+    
+
+    @IBAction func changeMonthStepper(_ sender: Any) {
+        let valueStepper = Int(changeMonthStepperOutlet.value)
         
-        //последний день выбранного месяца
-        var lastDayOfSelectMonth = Calendar.current.date(byAdding: .month, value: 1, to: selectDate!)
-        lastDayOfSelectMonth = Calendar.current.date(byAdding: .day, value: -1, to: lastDayOfSelectMonth!)
-        
-        
-        ////////////////////////////
-        selectMonthFunc(selectMonth: selectMonthNumber)
+        selectMonthArray.removeAll()
+        selectMonthFunc(selectMonth: valueStepper)
+        graphTableView.reloadData()
     }
     
+    func AllJobDaysFunc() {
+        
+    }
+    
+    //MARK: Заполнение массива с учетом выбранного месяца
     func selectMonthFunc(selectMonth: Int) {
         for i in jobArray {
-            let monthItem = Calendar.current.component(.month, from: i)
             
+            let monthItem = Calendar.current.component(.month, from: i)
             if monthItem == selectMonth {
-                format.dateFormat = "d"
+                format.dateFormat = "d MMM"
                 let dateString = format.string(from: i)
                 selectMonthArray.append(dateString)
             }
         }
         
+        navigationController?.title = "\(selectMonthArray.count) рабочих дней"
+        
     }
 
+    
+    
+    
 }
 
 
+
+
+
+
+
+
+
+
+
 extension graphViewController: UITableViewDelegate, UITableViewDataSource {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return selectMonthArray.count
     }
@@ -114,9 +138,9 @@ extension graphViewController: UITableViewDelegate, UITableViewDataSource {
     
         
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
         if let destination = segue.destination as? stankiViewController {
             var indexPathSelect = graphTableView.indexPathForSelectedRow
-            
             let rowFromDate = jobArray[indexPathSelect!.row]
             let sectionFromDate = jobArray[indexPathSelect!.section]
             let rowInString = format.string(from: rowFromDate)
