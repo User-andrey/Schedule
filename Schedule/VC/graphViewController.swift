@@ -31,6 +31,10 @@ class graphViewController: UIViewController {
             override func viewDidLoad() {
                 super.viewDidLoad()
                 
+                var subClass = ModelClass()
+                let answer = subClass.lastDayOfMonth(month: 3)
+                print(answer)
+                
                 graphTableView.delegate = self
                 graphTableView.dataSource = self
                 var calendarComponents = Calendar.current.dateComponents([.year, .month, .day, .hour] , from: myDate)
