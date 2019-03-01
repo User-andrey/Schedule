@@ -21,7 +21,7 @@ class graphViewController: UIViewController {
     var selectMonthArray = [String]()
     let myDate = Date()
     let weekInSecond = TimeInterval(7 * 24 * 60 * 60)
-
+    var subClass = ModelClass()
     
 
     
@@ -31,9 +31,16 @@ class graphViewController: UIViewController {
             override func viewDidLoad() {
                 super.viewDidLoad()
                 
-                var subClass = ModelClass()
-                let answer = subClass.lastDayOfMonth(month: 3)
-                print(answer)
+                
+                let first = subClass.firstJobDate()
+                let myArray = subClass.allJobDates(firstJobDay: first)
+                for i in myArray {
+                print(i)
+                }
+                
+                
+                
+                
                 
                 graphTableView.delegate = self
                 graphTableView.dataSource = self
