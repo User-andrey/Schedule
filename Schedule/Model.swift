@@ -1,6 +1,6 @@
 import Foundation
 
-class ModelClass {
+class ModelDate {
     
     //MARK: первый рабочий день в году (начало отсчета)
     func firstJobDate() -> Date {
@@ -44,22 +44,21 @@ class ModelClass {
     }
     
     //MARK: Заполнение массива с учетом выбранного месяца
-//    func selectMonthFunc(selectMonth: Int) {
-//        var format = DateFormatter()
-//        var jobArray = [Date]()
-//        for i in jobArray {
-//            
-//            let monthItem = Calendar.current.component(.month, from: i)
-//            if monthItem == selectMonth {
-//                format.dateFormat = "d MMM"
-//                let dateString = format.string(from: i)
-//                selectMonthArray.append(dateString)
-//            }
-//        }
-//        
-//        navigationController?.title = "\(selectMonthArray.count) рабочих дней"
-//        
-//    }
-//    
+    func selectMonth(jobArray: Array<Date>, selectMonth: Int) -> Array<String> {
+        var selectMonthArray = [String]()
+        let format = DateFormatter()
+        let local = Locale(identifier: "ru_RU")
+        format.locale = local
+        for i in jobArray {
+            let monthItem = Calendar.current.component(.month, from: i)
+            if monthItem == selectMonth {
+                format.dateFormat = "d MMM"
+                let dateString = format.string(from: i)
+                selectMonthArray.append(dateString)
+            }
+        }
+        return selectMonthArray
+    }
+    
     
 }
