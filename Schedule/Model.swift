@@ -44,22 +44,22 @@ class ModelClass {
     }
     
     //MARK: Заполнение массива с учетом выбранного месяца
-    func selectMonthFunc(selectMonth: Int) {
-        var format = DateFormatter()
-        var jobArray = [Date]()
-        for i in jobArray {
-            
-            let monthItem = Calendar.current.component(.month, from: i)
-            if monthItem == selectMonth {
-                format.dateFormat = "d MMM"
-                let dateString = format.string(from: i)
-                selectMonthArray.append(dateString)
-            }
-        }
-        
-        navigationController?.title = "\(selectMonthArray.count) рабочих дней"
-        
-    }
-    
+//    func selectMonthFunc(selectMonth: Int) {
+//        var format = DateFormatter()
+//        var jobArray = [Date]()
+//        for i in jobArray {
+//            
+//            let monthItem = Calendar.current.component(.month, from: i)
+//            if monthItem == selectMonth {
+//                format.dateFormat = "d MMM"
+//                let dateString = format.string(from: i)
+//                selectMonthArray.append(dateString)
+//            }
+//        }
+//        
+//        navigationController?.title = "\(selectMonthArray.count) рабочих дней"
+//        
+//    }
+//    
     
 }
