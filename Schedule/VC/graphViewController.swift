@@ -10,7 +10,8 @@ import UIKit
 
 class graphViewController: UIViewController {
     
-    @IBOutlet weak var changeMonthStepperOutlet: UIStepper!
+
+    @IBOutlet weak var monthPicker: UIPickerView!
     @IBOutlet weak var graphTableView: UITableView!
     var date = Date()
     var modelDate = ModelDate()
@@ -18,6 +19,7 @@ class graphViewController: UIViewController {
     var allJobDatesArray = [Date]()
     var selectMonthArray = [String]()
     var calendar = Calendar.current
+    var allMonthPicker = [String]()
 
     
             override func viewDidLoad() {
@@ -26,11 +28,14 @@ class graphViewController: UIViewController {
                 graphTableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
                 graphTableView.delegate = self
                 graphTableView.dataSource = self
+                monthPicker.delegate = self
+                monthPicker.dataSource = self
                 
                 let firstJobDayInYear = modelDate.firstJobDate()
                 allJobDatesArray = modelDate.allJobDates(firstJobDay: firstJobDayInYear)
                 let monthNow = calendar.component(.month, from: date)
                 self.selectMonthArray = modelDate.selectMonth(jobArray: allJobDatesArray, selectMonth: monthNow)
+                allMonthPicker = modelDate.allMonth()
 
 
             }
@@ -70,29 +75,36 @@ extension graphViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 70.0
+        return 55.0
     }
 
 
 
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//
-//        if let destination = segue.destination as? stankiViewController {
-//            var indexPathSelect = graphTableView.indexPathForSelectedRow
-//            let rowFromDate = jobArray[indexPathSelect!.row]
-//            let sectionFromDate = jobArray[indexPathSelect!.section]
-//            let rowInString = format.string(from: rowFromDate)
-//            let sectionInString = format.string(from: sectionFromDate)
-//
-//            destination.numberRowSelected = rowInString
-//            destination.numberSectionSelected = sectionInString
-//        }
-//    }
-
-
-
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destination = segue.destination as? stankiViewController {
+            var indexPathSelect = graphTableView.indexPathForSelectedRow
+            let rowFromDate = selectMonthArray[indexPathSelect!.row]
+            let sectionFromDate = selectMonthArray[indexPathSelect!.section]
+            destination.numberRowSelected = rowFromDate
+            destination.numberSectionSelected = sectionFromDate
+        }
+    }
 
 }
 
-
+extension graphViewController: UIPickerViewDelegate, UIPickerViewDataSource {
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return allMonthPicker.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return allMonthPicker[row]
+    }
+    
+}
 

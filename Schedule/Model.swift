@@ -60,5 +60,19 @@ class ModelDate {
         return selectMonthArray
     }
     
+    func allMonth() -> Array<String> {
+        var dateComponents = DateComponents()
+        let format = DateFormatter()
+        var monthArray = [String]()
+        format.locale = Locale.init(identifier: "ru_RU")
+        format.dateFormat = "LLLL"
+        for i in 1...12 {
+            dateComponents.month = i
+            let date = Calendar.current.date(from: dateComponents)
+            let month = format.string(from: date!)
+            monthArray.append(month)
+        }
+        return monthArray
+    }
     
 }
