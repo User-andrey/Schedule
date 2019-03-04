@@ -10,12 +10,13 @@ import UIKit
 
 class stankiViewController: UIViewController {
     
-    var numberRowSelected: String?
+    var dateRowSelected: String?
     var numberSectionSelected: String?
     
     @IBOutlet weak var SR23Switch: UISwitch!
     @IBOutlet weak var SR3Switch: UISwitch!
     @IBOutlet weak var V4Switch: UISwitch!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,26 +30,27 @@ class stankiViewController: UIViewController {
     }
     
     
+    
     // сохранение данных
-    @objc func switchChanged(paramTarget: UISwitch) {
+    @objc func switchChanged(paramTarget: UISwitch ) {
         
         if paramTarget == SR23Switch {
             if paramTarget.isOn == true {
-                saveSwitch(numberStanok: "SR2-3" + numberSectionSelected! + numberRowSelected!, valueSwitch: true)
+                saveSwitch(numberStanok: "SR2-3" + dateRowSelected!, valueSwitch: true)
             }else{
-                saveSwitch(numberStanok: "SR2-3" + numberSectionSelected! + numberRowSelected!, valueSwitch: false)
+                saveSwitch(numberStanok: "SR2-3" + dateRowSelected!, valueSwitch: false)
             }
         }else if paramTarget == SR3Switch{
             if paramTarget.isOn == true {
-                saveSwitch(numberStanok: "SR3" + numberSectionSelected! + numberRowSelected!, valueSwitch: true)
+                saveSwitch(numberStanok: "SR3" + dateRowSelected!, valueSwitch: true)
             }else{
-                saveSwitch(numberStanok: "SR3" + numberSectionSelected! + numberRowSelected!, valueSwitch: false)
+                saveSwitch(numberStanok: "SR3" + dateRowSelected!, valueSwitch: false)
             }
         }else if paramTarget == V4Switch{
             if paramTarget.isOn == true {
-                saveSwitch(numberStanok: "V4" + numberSectionSelected! + numberRowSelected!, valueSwitch: true)
+                saveSwitch(numberStanok: "V4" + dateRowSelected!, valueSwitch: true)
             }else{
-                saveSwitch(numberStanok: "V4" + numberSectionSelected! + numberRowSelected!, valueSwitch: false)
+                saveSwitch(numberStanok: "V4" + dateRowSelected!, valueSwitch: false)
             }
         }
         
@@ -58,21 +60,31 @@ class stankiViewController: UIViewController {
         UserDefaults.standard.set(valueSwitch, forKey: numberStanok)
     }
     
+    
+    
+    
+    
     //Загрузка данных
     func loadSwitch() {
-        let loadSR23Switch = UserDefaults.standard.bool(forKey: "SR2-3" + numberSectionSelected! + numberRowSelected!)
+        
+        
+        
+        let loadSR23Switch = UserDefaults.standard.bool(forKey: "SR2-3" + dateRowSelected!)
         if loadSR23Switch == true {
             SR23Switch.isOn = true
         }else{
             SR23Switch.isOn = false
         }
-        let loadSR3Switch = UserDefaults.standard.bool(forKey: "SR3" + numberSectionSelected! + numberRowSelected!)
+        
+        
+        let loadSR3Switch = UserDefaults.standard.bool(forKey: "SR3" + dateRowSelected!)
         if loadSR3Switch == true {
             SR3Switch.isOn = true
         }else{
             SR3Switch.isOn = false
         }
-        let loadV4Switch = UserDefaults.standard.bool(forKey: "V4" + numberSectionSelected! + numberRowSelected!)
+        
+        let loadV4Switch = UserDefaults.standard.bool(forKey: "V4" + dateRowSelected!)
         if loadV4Switch == true {
             V4Switch.isOn = true
         }else{
@@ -81,3 +93,5 @@ class stankiViewController: UIViewController {
     }
     
 }
+
+

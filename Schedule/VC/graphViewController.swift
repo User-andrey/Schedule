@@ -10,9 +10,12 @@ import UIKit
 
 class graphViewController: UIViewController {
     
+    
 
     @IBOutlet weak var monthPicker: UIPickerView!
     @IBOutlet weak var graphTableView: UITableView!
+    
+    
     var date = Date()
     var modelDate = ModelDate()
     let timeZone = TimeZone.current
@@ -20,12 +23,13 @@ class graphViewController: UIViewController {
     var selectMonthArray = [String]()
     var calendar = Calendar.current
     var allMonthPicker = [String]()
+    var saveClass = SaveClass()
+    var money = 0
 
     
             override func viewDidLoad() {
                 super.viewDidLoad()
                 
-                graphTableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
                 graphTableView.delegate = self
                 graphTableView.dataSource = self
                 monthPicker.delegate = self
@@ -36,8 +40,10 @@ class graphViewController: UIViewController {
                 let monthNow = calendar.component(.month, from: date)
                 self.selectMonthArray = modelDate.selectMonth(jobArray: allJobDatesArray, selectMonth: monthNow)
                 allMonthPicker = modelDate.allMonth()
-
-
+                navigationController?.topViewController?.title = "График работы"
+                monthPicker.selectRow(monthNow - 1, inComponent: 0, animated: true)
+                
+                
             }
 
 
@@ -47,50 +53,61 @@ class graphViewController: UIViewController {
 
 
 
+extension graphViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 55.0
+    }
+
+}
 
 
 
-
-
-
-extension graphViewController: UITableViewDelegate, UITableViewDataSource {
+extension graphViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return selectMonthArray.count
     }
 
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = selectMonthArray[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! GraphTableViewCell
+        cell.dateLabel.text = selectMonthArray[indexPath.row]
+        let stanokCount = saveClass.stanokCount(date: selectMonthArray[indexPath.row])
+        
+        if stanokCount > 1 {
+            cell.infoLabel.text = "\(stanokCount) станка"
+        }else if stanokCount == 0{
+            cell.infoLabel.text = ""
+        }else{
+            cell.infoLabel.text = "\(stanokCount) станок"
+        }
+        
+        let moneyInHour = stanokCount * 12 * 105
+        money += moneyInHour
+        navigationController?.topViewController?.title = String(money)
+        
         return cell
     }
-
-
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-    }
-
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 55.0
-    }
-
-
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destination = segue.destination as? stankiViewController {
             var indexPathSelect = graphTableView.indexPathForSelectedRow
             let rowFromDate = selectMonthArray[indexPathSelect!.row]
-            let sectionFromDate = selectMonthArray[indexPathSelect!.section]
-            destination.numberRowSelected = rowFromDate
-            destination.numberSectionSelected = sectionFromDate
+            destination.dateRowSelected = rowFromDate
         }
     }
+ 
+    
 
 }
+
+
+
 
 extension graphViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     
@@ -105,6 +122,13 @@ extension graphViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return allMonthPicker[row]
     }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        self.selectMonthArray = modelDate.selectMonth(jobArray: allJobDatesArray, selectMonth: row + 1)
+        graphTableView.reloadData()
+    }
+    
+    
     
 }
 

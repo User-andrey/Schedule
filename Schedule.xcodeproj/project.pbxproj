@@ -14,6 +14,7 @@
 		EB316506220CBF720003F474 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB316505220CBF720003F474 /* Assets.xcassets */; };
 		EB316509220CBF720003F474 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB316507220CBF720003F474 /* LaunchScreen.storyboard */; };
 		EB31652D220CD0DC0003F474 /* graphViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB31652C220CD0DC0003F474 /* graphViewController.swift */; };
+		EBA7A266222D87770015C8A8 /* GraphTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA7A265222D87770015C8A8 /* GraphTableViewCell.swift */; };
 		EBBACF93221B28CB0083D52D /* SaveLoadClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBBACF92221B28CB0083D52D /* SaveLoadClass.swift */; };
 		EBD1CFD92229B9A2002818E9 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD1CFD82229B9A2002818E9 /* Model.swift */; };
 /* End PBXBuildFile section */
@@ -47,6 +48,7 @@
 		EB31650F220CBF720003F474 /* ScheduleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ScheduleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB31651A220CBF720003F474 /* ScheduleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ScheduleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB31652C220CD0DC0003F474 /* graphViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = graphViewController.swift; sourceTree = "<group>"; };
+		EBA7A265222D87770015C8A8 /* GraphTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphTableViewCell.swift; sourceTree = "<group>"; };
 		EBBACF92221B28CB0083D52D /* SaveLoadClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveLoadClass.swift; sourceTree = "<group>"; };
 		EBD1CFD82229B9A2002818E9 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -114,6 +116,7 @@
 				EB0DF1C6221BC98900268ACD /* ChamferVC.swift */,
 				EBBACF92221B28CB0083D52D /* SaveLoadClass.swift */,
 				EB31652C220CD0DC0003F474 /* graphViewController.swift */,
+				EBA7A265222D87770015C8A8 /* GraphTableViewCell.swift */,
 				EB2488D42216B14C00120209 /* stankiViewController.swift */,
 			);
 			path = VC;
@@ -251,6 +254,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EB0DF1C7221BC98900268ACD /* ChamferVC.swift in Sources */,
+				EBA7A266222D87770015C8A8 /* GraphTableViewCell.swift in Sources */,
 				EB2488D52216B14C00120209 /* stankiViewController.swift in Sources */,
 				EB3164FF220CBF700003F474 /* AppDelegate.swift in Sources */,
 				EBBACF93221B28CB0083D52D /* SaveLoadClass.swift in Sources */,
