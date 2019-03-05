@@ -28,4 +28,17 @@ class SaveClass {
     }
     
     
+    func sumMoney(selectMonthArray: Array<String>) -> Int {
+        var allMoney = 0
+        for i in selectMonthArray{
+            var money = stanokCount(date: i)
+            money = money * 12 * 105
+            allMoney += money
+        }
+        return allMoney
+    }
+    
+    
+    
+    
 }

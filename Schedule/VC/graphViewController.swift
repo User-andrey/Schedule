@@ -12,6 +12,8 @@ class graphViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         graphTableView.reloadData()
+        allMoney = saveClass.sumMoney(selectMonthArray: selectMonthArray)
+        navigationController?.topViewController?.title = "\(allMoney)₽"
     }
     
 
@@ -27,7 +29,8 @@ class graphViewController: UIViewController {
     var calendar = Calendar.current
     var allMonthPicker = [String]()
     var saveClass = SaveClass()
-    var money = 0
+    var allMoney = 0
+    
 
     
             override func viewDidLoad() {
@@ -43,7 +46,11 @@ class graphViewController: UIViewController {
                 let monthNow = calendar.component(.month, from: date)
                 self.selectMonthArray = modelDate.selectMonth(jobArray: allJobDatesArray, selectMonth: monthNow)
                 allMonthPicker = modelDate.allMonth()
-                navigationController?.topViewController?.title = "График работы"
+                
+                allMoney = saveClass.sumMoney(selectMonthArray: selectMonthArray)
+                
+                
+                navigationController?.topViewController?.title = "\(allMoney)₽"
                 monthPicker.selectRow(monthNow - 1, inComponent: 0, animated: true)
                 
                 
