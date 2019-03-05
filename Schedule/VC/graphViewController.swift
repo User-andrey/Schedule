@@ -10,6 +10,9 @@ import UIKit
 
 class graphViewController: UIViewController {
     
+    override func viewDidAppear(_ animated: Bool) {
+        graphTableView.reloadData()
+    }
     
 
     @IBOutlet weak var monthPicker: UIPickerView!
@@ -88,8 +91,7 @@ extension graphViewController: UITableViewDataSource {
         }
         
         let moneyInHour = stanokCount * 12 * 105
-        money += moneyInHour
-        navigationController?.topViewController?.title = String(money)
+        cell.moneyLable.text = "\(moneyInHour)₽"
         
         return cell
     }

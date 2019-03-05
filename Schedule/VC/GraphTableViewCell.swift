@@ -13,6 +13,7 @@ class GraphTableViewCell: UITableViewCell {
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var infoLabel: UILabel!
     
+    @IBOutlet weak var moneyLable: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
