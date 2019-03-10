@@ -155,7 +155,7 @@
             </objects>
             <point key="canvasLocation" x="-77" y="1237"/>
         </scene>
-        <!--Фаска-->
+        <!--ChamferVC-->
         <scene sceneID="toG-RW-ALs">
             <objects>
                 <viewController id="fwf-zo-sPc" customClass="ChamferVC" customModule="Schedule" customModuleProvider="target" sceneMemberID="viewController">
@@ -222,7 +222,13 @@
                             <outletCollection property="gestureRecognizers" destination="TRS-vu-fzZ" appends="YES" id="lEE-Mr-bna"/>
                         </connections>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Фаска" image="chamfer" id="cLS-My-cnF"/>
+                    <navigationItem key="navigationItem" id="kTt-KJ-bAz">
+                        <barButtonItem key="rightBarButtonItem" title="Фрез.отверсия&gt;" id="yDf-Hn-cn3">
+                            <connections>
+                                <segue destination="LAV-Hb-MHP" kind="show" id="qfd-I1-cLa"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="outputLabel" destination="9yn-cf-YWw" id="Uxl-Zx-D0n"/>
                         <outlet property="text1" destination="YZu-Dh-vi9" id="hz2-gF-SNp"/>
@@ -237,7 +243,86 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="581" y="408"/>
+            <point key="canvasLocation" x="1576.875" y="407.74647887323943"/>
+        </scene>
+        <!--Hole Milling-->
+        <scene sceneID="QlY-WC-qHg">
+            <objects>
+                <viewController id="LAV-Hb-MHP" customClass="HoleMilling" customModule="Schedule" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="CmD-kM-6Pi">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fWv-cj-9Bl">
+                                <rect key="frame" x="16" y="44" width="288" height="71"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Диаметр отверстия" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8Z0-qu-4bz">
+                                <rect key="frame" x="16" y="137" width="288" height="49"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="37"/>
+                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Диаметр фрезы" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Mwg-ZD-q1Z">
+                                <rect key="frame" x="16" y="201" width="288" height="49"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="37"/>
+                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Координата Х" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FGo-xW-hu0">
+                                <rect key="frame" x="16" y="266" width="288" height="49"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="37"/>
+                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="adY-ov-FaN">
+                                <rect key="frame" x="72" y="346" width="175" height="59"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <state key="normal" title="Расчитать"/>
+                                <connections>
+                                    <action selector="answerButton:" destination="fwf-zo-sPc" eventType="touchUpInside" id="dUU-I3-GUj"/>
+                                    <action selector="resultButton:" destination="LAV-Hb-MHP" eventType="touchUpInside" id="3wm-bc-Yva"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HDT-EC-1Zj">
+                                <rect key="frame" x="236" y="323" width="59" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="+/-"/>
+                                <connections>
+                                    <action selector="plusMinusButton:" destination="LAV-Hb-MHP" eventType="touchUpInside" id="3IH-Vm-WVI"/>
+                                    <action selector="plusMinusButton:" destination="fwf-zo-sPc" eventType="touchUpInside" id="rkO-YD-TYd"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <gestureRecognizers/>
+                        <viewLayoutGuide key="safeArea" id="Ddc-uM-264"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="hVs-Ek-mAx" appends="YES" id="Jtl-k3-Fhj"/>
+                        </connections>
+                    </view>
+                    <connections>
+                        <outlet property="coordinateX" destination="FGo-xW-hu0" id="t4a-IA-UdG"/>
+                        <outlet property="holeDiameter" destination="8Z0-qu-4bz" id="WwQ-SP-230"/>
+                        <outlet property="resultLabel" destination="fWv-cj-9Bl" id="G9s-aU-iK6"/>
+                        <outlet property="toolDiameter" destination="Mwg-ZD-q1Z" id="fLJ-G4-YDt"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="q2A-sj-jcN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="hVs-Ek-mAx">
+                    <connections>
+                        <action selector="tapAction:" destination="LAV-Hb-MHP" id="mxm-1Q-Amu"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="2350" y="410"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="0KW-9I-wMg">
@@ -251,7 +336,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="R3I-dW-Ryi" kind="relationship" relationship="viewControllers" id="bic-Sw-KoI"/>
-                        <segue destination="fwf-zo-sPc" kind="relationship" relationship="viewControllers" id="572-TI-l30"/>
+                        <segue destination="vRF-u2-OpF" kind="relationship" relationship="viewControllers" id="572-TI-l30"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Gs-ft-tlb" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -279,6 +364,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ecx-ug-wbr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-939" y="408"/>
+        </scene>
+        <!--Фаска-->
+        <scene sceneID="ieL-le-QMZ">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="vRF-u2-OpF" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Фаска" image="chamfer" id="cLS-My-cnF"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="vU7-Zk-IKv">
+                        <rect key="frame" x="0.0" y="20" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="fwf-zo-sPc" kind="relationship" relationship="rootViewController" id="lcf-mr-sFy"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Pul-gv-5pG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="579.375" y="407.74647887323943"/>
         </scene>
     </scenes>
     <resources>
